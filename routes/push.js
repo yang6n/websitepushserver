@@ -11,7 +11,9 @@ exports.pushPackage = function (req, res) {
 };
 
 exports.register = function (req, res) {
-    console.log("registering" + JSON.stringify(req.body));
+    console.log("registering");
+    console.log("body: " + JSON.stringify(req.body));
+    console.log("params: " + JSON.stringify(req.params));
     /*
     var deviceToken = req.params.deviceToken;
     var websitePushID = req.params.websitePushID;
@@ -25,7 +27,9 @@ exports.register = function (req, res) {
 };
 
 exports.unregister = function (req, res) {
-    console.log("unregistering" + JSON.stringify(req.body));
+    console.log("unregistering");
+    console.log("body: " + JSON.stringify(req.body));
+    console.log("params: " + JSON.stringify(req.params));
     console.log("Unregistered!");
     res.send(200);
 };

@@ -2,7 +2,7 @@
     "webServiceURL": "https://api.zhangxianli.cn",
     "websitePushID": "web.com.digby.test.jaysorc",
     "websiteName": "Orc Base",
-    "allowedDomains": "http://zhangxianli.cn",
+    "allowedDomains": ["http://zhangxianli.cn"],
     "authenticationToken": "cee1e112-8694-4258-b8ed-2964b8f1566d",
     "urlFormatString": "http://zhangxinli.cn/pushcallback/%@=%@"
 }

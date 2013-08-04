@@ -34,6 +34,8 @@ if ('development' == app.get('env')) {
 
 app.post('/v1/log', routes.log);
 app.post('/v1/pushPackages/:websitePushID', push.pushPackage);
+app.post('/v1/devices/:deviceToken/registrations/:websitePushID', push.register);
+app.delete('/v1/devices/:deviceToken/registrations/:websitePushID', push.unregister);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

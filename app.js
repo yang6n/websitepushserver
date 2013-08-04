@@ -49,8 +49,8 @@ http.createServer(app).listen(app.get('port'), function(){
 */
 
 var options = {
-    key: fs.readFileSync('api.zhangxianli.cn_ssl.key'),
-    cert: fs.readFileSync('api.zhangxianli.cn_ssl.crt')
+    key: fs.readFileSync('/opt/conf/api.zhangxianli.cn_ssl.key'),
+    cert: fs.readFileSync('/opt/conf/api.zhangxianli.cn_ssl.crt')
 };
 
 https.createServer(options, function(){

@@ -37,6 +37,8 @@ app.post('/v1/pushPackages/:websitePushID', push.pushPackage);
 app.post('/v1/devices/:deviceToken/registrations/:websitePushID', push.register);
 app.delete('/v1/devices/:deviceToken/registrations/:websitePushID', push.unregister);
 
+app.post('/v1/pushMessage', push.pushMessage());
+
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });

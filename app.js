@@ -6,13 +6,14 @@
 var express = require('express')
   , routes = require('./routes')
   , push = require('./routes/push')
-  , http = require('http')
+  , https = require('https')
+  , fs = require('fs')
   , path = require('path');
 
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 443);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.favicon());
@@ -37,8 +38,21 @@ app.post('/v1/pushPackages/:websitePushID', push.pushPackage);
 app.post('/v1/devices/:deviceToken/registrations/:websitePushID', push.register);
 app.delete('/v1/devices/:deviceToken/registrations/:websitePushID', push.unregister);
 
-app.post('/v1/pushMessage', push.pushMessage());
+app.post('/v1/pushMessage', push.pushMessage);
 
+
+
+/*
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+*/
+
+var options = {
+    key: fs.readFileSync('api.zhangxianli.cn_ssl.key'),
+    cert: fs.readFileSync('api.zhangxianli.cn_ssl.crt')
+};
+
+https.createServer(options, function(){
+    console.log('Express server listening on port ' + app.get('port'));
+}).listen(app.get('port'));

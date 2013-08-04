@@ -71,7 +71,6 @@ function connectAPN(next) {
     var i = 0;
     var msgid = 0xbeefcace; // message identifier, can be left 0
     var seconds = Math.round(new Date().getTime() / 1000) + 1 * 60 * 60; // expiry in epoch seconds (1 hour);
-    var payload = JSON.stringify(pushnd);
 
     buffer[i++] = 1; // command
     buffer[i++] = msgid >> 24 & 0xFF;

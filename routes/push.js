@@ -35,7 +35,6 @@ exports.unregister = function (req, res) {
 };
 
 var fs = require('fs');
-var crypto = require('crypto');
 var tls = require('tls');
 
 var certPem = fs.readFileSync('/opt/conf/WebsitePush-cert.pem', encoding = 'ascii');
@@ -63,7 +62,7 @@ function connectAPN(next) {
             },
             "url-args": ["aType", "aValue"]
         }
-    }
+    };
 
     var hextoken = '5107AACD26F6ABB8A2ACCD061FDF582B7E4C4E6FFC6B9318EFF7ECA79ED42225'; // Push token from iPhone app. 32 bytes as hexadecimal string
     var token = hextobin(hextoken);
@@ -120,6 +119,10 @@ function hextobin(hexstr) {
 };
 
 exports.pushMessage = function (req, res) {
+    console.log("pushMessage");
+    console.log("body: " + JSON.stringify(req.body));
+    console.log("params: " + JSON.stringify(req.params));
+
     connectAPN(function () {
     });
     res.send(200);

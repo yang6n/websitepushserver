@@ -40,8 +40,9 @@ var tls = require('tls');
 
 var certPem = fs.readFileSync('/opt/conf/WebsitePush-cert.pem', encoding = 'ascii');
 var keyPem = fs.readFileSync('/opt/conf/WebsitePush-key-noenc.pem', encoding = 'ascii');
-var caCert = fs.readFileSync('/opt/conf/AppleWWDRCA.cer', encoding = 'ascii');
-var options = { key: keyPem, cert: certPem, ca: [ caCert ] };
+//var caCert = fs.readFileSync('/opt/conf/AppleWWDRCA.cer', encoding = 'ascii');
+//var options = { key: keyPem, cert: certPem, ca: [ caCert ] };
+var options = { key: keyPem, cert: certPem/*, ca: [ caCert ] */};
 
 function connectAPN(next) {
 

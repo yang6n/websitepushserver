@@ -45,7 +45,9 @@ var options = { key: keyPem, cert: certPem, ca: [ caCert ] };
 
 function connectAPN(next) {
 
-    var stream = tls.connect(2195, 'gateway.sandbox.push.apple.com', options, function () {
+    //var url = 'gateway.sandbox.push.apple.com';
+    var url = 'gateway.push.apple.com';
+    var stream = tls.connect(2195, url, options, function () {
         // connected
         next(!stream.authorized, stream);
     });
